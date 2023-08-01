@@ -1,7 +1,6 @@
 // uno.config.ts
 import {
   defineConfig,
-  presetAttributify,
   presetIcons,
   presetTypography,
   presetUno,
@@ -13,7 +12,7 @@ import {
 export default defineConfig({
   presets: [
     presetUno(),
-    presetAttributify(),
+    // presetAttributify(), react jsx 暂时不使用属性模式
     presetTypography(),
     presetWebFonts({
       provider: 'google',
@@ -26,6 +25,27 @@ export default defineConfig({
       scale: 1.2,
       warn: true,
     }),
+  ],
+  rules: [
+    ['grid-bg',
+      {
+        'background-image': `conic-gradient(
+          var(--bg1) 90deg,
+          var(--bg2) 90deg 180deg,
+          var(--bg1) 180deg 270deg,
+          var(--bg2) 270deg
+        )`,
+        'background-size': 'calc(100vw / var(--num) * 2) calc(100vw / var(--num) * 2)',
+      },
+    ],
+    ['screen-bg',
+      {
+        'background-image': 'url(@/bg/screen1.jpg)',
+        'background-size': 'cover',
+        'background-position': 'center',
+        'background-repeat': 'no-repeat',
+      },
+    ],
   ],
   transformers: [
     transformerDirectives(),
