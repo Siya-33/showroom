@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     '@dcwjoy/react',
+    '@unocss',
   ],
   plugins: [
     'react',

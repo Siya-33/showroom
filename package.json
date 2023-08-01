@@ -12,8 +12,11 @@
     "postinstall": "npx simple-git-hooks"
   },
   "dependencies": {
+    "@unocss/eslint-config": "^0.54.1",
+    "@unocss/reset": "^0.54.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "unocss": "^0.54.1"
   },
   "devDependencies": {
     "@dcwjoy/eslint-config": "^0.39.27",
