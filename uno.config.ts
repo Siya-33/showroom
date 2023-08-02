@@ -46,6 +46,14 @@ export default defineConfig({
         'background-repeat': 'no-repeat',
       },
     ],
+    [
+      'card-bg',
+      {
+        'background-image': 'linear-gradient(112deg, hsla(0, 0%, 100%, .3) -50%, transparent)',
+        'backdrop-filter': 'blur(5px)',
+      },
+    ],
+
   ],
   transformers: [
     transformerDirectives(),

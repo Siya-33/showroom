@@ -7,7 +7,7 @@ import '@unocss/reset/tailwind.css'
 
 // unocss
 import 'virtual:uno.css'
-import './index.css'
+import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
