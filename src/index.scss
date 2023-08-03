@@ -114,7 +114,7 @@
       background-repeat: no-repeat;
       backdrop-filter: blur(10px);
       transform: scale(0.8);
-      // animation: container-spin 50s linear infinite;
+      animation: container-spin 50s linear infinite;
 
     }
     @for $i from 1 through 6 {
