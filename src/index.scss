@@ -11,8 +11,6 @@
   initial-value: 0deg;
 }
 
-#root {}
-
 .header {
   --bg-offset: 0px;
 }
@@ -52,48 +50,18 @@
   box-shadow: inset 1px 1px 5px hsla(0, 0%, 100%, 0.5);
   border-radius: 5px;
   overflow: hidden;
-
-  // & > div {
-  //   position: absolute;
-  //   inset: 0;
-  //   background: inherit;
-  //   border-radius: inherit;
-  //   border: var(--border-width) solid transparent;
-  //   z-index: 2;
-  // }
-
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   inset: 0;
-  //   background: conic-gradient(
-  //     from var(--angle) at center,
-  //     transparent,
-  //     #fff 0.05turn,
-  //     transparent 0.1turn
-  //   );
-  //   -webkit-mask-image: linear-gradient(#000 var(--border-width), transparent var(--border-width) calc(100% - var(--border-width)), #000 calc(100% - var(--border-width))),
-  //     linear-gradient(to right, #000 var(--border-width), transparent var(--border-width) calc(100% - var(--border-width)), #000 calc(100% - var(--border-width)));
-  //   -webkit-mask-repeat: no-repeat;
-  //   -webkit-mask-position: center;
-  //   animation: spin 3s linear infinite;
-  // }
-  // @keyframes spin {
-  //   100% {
-  //     --angle: 360deg;
-  //   }
-  // }
 }
 
 .main {
   position: absolute;
   left: 50%;
-  bottom: -250px;
+  bottom: -150px;
   width: 800px;
   height: 800px;
   transform-style: preserve-3d;
   transform: translate3d(-50%, 0, 600px) rotateX(88deg);
   background-image: -webkit-radial-gradient(center center, farthest-side, hsla(0, 0%, 100%, .4), transparent);
+  animation: container-spin 50s linear infinite;
 
   .card-wp {
     position: absolute;
@@ -101,28 +69,104 @@
     left: 50%;
     width: 202px;
     height: 213px;
-    transform: translate3d(-50%, -50%, 0) rotateX(-90deg);
+    transform: translate3d(-50%, -50%, 0) rotateX(-95deg);
     transform-origin: center bottom;
+
     .card-item {
       width: 100%;
       height: 100%;
       position: absolute;
-      transform-origin: center center -250px;
+      transform-origin: center center -200px;
       // box-shadow: inset 1px 1px 5px hsla(0, 0%, 100%, 0.5);
-      background-image: url(@/bg/card.png);
-      background-size: cover;
+      background-size: contain;
       background-repeat: no-repeat;
       backdrop-filter: blur(10px);
-      transform: scale(0.8);
-      animation: container-spin 50s linear infinite;
+      transform: scale(0.75);
 
     }
-    @for $i from 1 through 6 {
+    @for $i from 1 through 5 {
       .card-item:nth-child(#{$i}) {
-        transform: rotateY(calc(#{60 * $i}deg + var(--angle))) scale(0.8);
+        transform: rotateY(calc(#{72 * $i}deg + var(--angle))) scale(0.75);
         // background-color: hsl(60 * $i, 100%, 50%);
       }
     }
+  }
+}
+
+.droplen {
+  position: absolute;
+  top: 600px;
+  right: 130px;
+  padding: 21px 27px;
+  width: 260px;
+  border-radius: 12px;
+  color: hsla(0, 0%, 100%, .8);
+  font-size: 14px;
+  background: radial-gradient(67% 67% at 108% 148%, rgba(219,225,240,0.23) 5%, rgba(219,225,240,0.00) 99%),
+    radial-gradient(146% 146% at -24% -56%, #0B183A 0%, rgba(157,175,227,0.00) 99%);
+  backdrop-filter: blur(12px);
+  transform: translate3d(-30px, 0, 100px) rotateY(-24deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    background: linear-gradient(var(--angle),rgba(255,255,255,0.63) 0%, rgba(0,0,0,0.23) 100%) border-box;
+    -webkit-mask: /*4*/
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /*5'*/
+          mask-composite: exclude; /*5*/
+    box-sizing: border-box;
+    border-radius: inherit;
+    animation: container-spin 2s linear infinite;
+
+  }
+  // 徽标
+  .brand {
+    position: relative;
+    border-radius: 17px;
+    padding: 8px 14px 8px 30px;
+    &::after {
+      position: absolute;
+      content: '';
+      inset: 0;
+      border: 1px solid transparent;
+      border: 1px solid transparent;
+      background: linear-gradient(180deg,rgba(255,255,255,0.63) 0%, rgba(0,0,0,0.23) 100%) border-box;
+      -webkit-mask: /*4*/
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; /*5'*/
+            mask-composite: exclude; /*5*/
+      box-sizing: border-box;
+      border-radius: inherit;
+
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: 8px;
+      transform: translate(0, -10px);
+      width: 17px;
+      height: 17px;
+      background-image: url(@/bg/brand.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      filter: drop-shadow(#3A9DE2 0px 0px 8px);
+    }
+  }
+  .test {
+    position: absolute;
+    left: 60px;
+    top: -15px;
+    width: 417.63px;
+    height: 126.54px;
+    transform: rotate(-150deg);
+    opacity: 0.03;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.00) 100%);
   }
 }
 
