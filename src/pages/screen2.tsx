@@ -3,17 +3,13 @@ export default function Screen2() {
     <>
       <a
         className="bg-red"
-        href="#"
-      >
+        href="#">
         <span>ddd</span>
-        Screen2
-      </a>
+        Screen2</a>
 
       <div>hello</div>
 
-      <div
-        className="text-red-500"
-      />
+      <div className="text-red-500" />
 
       <div />
     </>
