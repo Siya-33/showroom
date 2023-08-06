@@ -3,10 +3,26 @@ export default function Screen1() {
   const mainRef = useRef<HTMLDivElement>(null!)
   const [active, setActive] = useState<number | undefined>()
   const initialText = '基于神经网络的自主全栈式ai算法生成的数字人在经过前期训练后从收到语音信息到做出回复将经历语音输入，STT语音转文本，LLM大语言模型等总计六个步骤'
-  const [droplenAnswer, setDroplenAnswer] = useState<string>(initialText)
   const [realAnswer, setRealAnswer] = useState<string>(initialText)
-  let timeID: unknown
-  let generating = false
+
+  const timer = useRef<number>()
+
+  const animationText = useCallback(async (text: string) => {
+    let s = ''
+    let i = 0
+    if (timer.current) {
+      clearInterval(timer.current)
+      s = ''
+      i = 0
+    }
+    timer.current = setInterval(() => {
+      s += text[i]
+      setRealAnswer(s)
+      i++
+      if (i >= text.length)
+        clearInterval(timer.current)
+    }, 50) as any as number
+  }, [])
 
   useEffect(() => {
     mainRef.current.style.setProperty('--angle', `${angle}deg`)
@@ -47,37 +63,42 @@ export default function Screen1() {
   }, [angle])
 
   useEffect(() => {
-    // console.log(generating)
     if (active === undefined) {
       mainRef.current.style.animationPlayState = 'running'
-      setDroplenAnswer(initialText)
-      return
+      animationText(initialText)
+      return () => {
+        animationText('')
+      }
     }
 
-    // if (timeID)
-    //   clearTimeout(timeID as number)
-
-    // timeID = setTimeout(() => setActive(undefined), 5000)
     if (active === 0)
-      setDroplenAnswer('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
+      animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
 
     if (active === 1)
-      setDroplenAnswer('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
+      animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
     if (active === 2)
-      setDroplenAnswer('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
+      animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
     if (active === 3)
-      setDroplenAnswer('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
+      animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
     if (active === 4)
-      setDroplenAnswer('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
+      animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
 
     mainRef.current.style.animationPlayState = 'paused'
-    return () => setDroplenAnswer('')
-  }, [active])
+    return () => {
+      animationText('')
+    }
+  }, [active, animationText])
 
-  useEffect(() => {
-    animationText(droplenAnswer)
-    return () => setDroplenAnswer('')
-  }, [droplenAnswer])
+  function handleClick(val: number, _angle: number) {
+    // mainRef.current.style.setProperty('--angle', `${angle}deg`)
+    setActive(val)
+  }
+
+  function sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(), ms)
+    })
+  }
 
   function base1() {
     return `absolute bottom-400px left-50% w-300px translate-z-800px
@@ -199,28 +220,6 @@ export default function Screen1() {
       aspect-1.4
       bg-[url(@/bg/lan-2.png)]
     `
-  }
-
-  function handleClick(val: number, _angle: number) {
-    // mainRef.current.style.setProperty('--angle', `${angle}deg`)
-    setActive(val)
-  }
-
-  function sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(), ms)
-    })
-  }
-
-  async function animationText(text: string) {
-    let s = ''
-    generating = true
-    for (const item of text) {
-      s += item
-      await sleep(50)
-      setRealAnswer(s)
-    }
-    generating = false
   }
 
   return (
