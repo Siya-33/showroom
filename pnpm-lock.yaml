@@ -55,6 +55,9 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.0.0
     version: 6.0.0(eslint@8.45.0)(typescript@5.0.2)
+  '@unocss/transformer-attributify-jsx':
+    specifier: ^0.54.1
+    version: 0.54.1
   '@vitejs/plugin-react':
     specifier: ^4.0.4
     version: 4.0.4(vite@4.4.5)
@@ -1473,7 +1476,6 @@ packages:
 
   /@unocss/core@0.54.1:
     resolution: {integrity: sha512-lbwvGD91liMNEZs3jwXxLrIHIn/J4dkJpeKdosRdm1xObqrkg0+Zx1fVn6X+GOX74yvjQlzbu/ODZEXFQC3mGw==}
-    dev: false
 
   /@unocss/eslint-config@0.54.1(eslint@8.45.0)(typescript@5.0.2):
     resolution: {integrity: sha512-9pccyzNkatIPLxVZDaw1jQZiIsKuTRqZ5ynadujQOPGq7NUtsZYMAopE4K896NuCW7t/S+zUtl7brb6mH7vBkw==}
@@ -1604,7 +1606,6 @@ packages:
     resolution: {integrity: sha512-V0STWEUBmfN1HBwvPuj1d1MRyfFsmh3z8tahqaGfswb9SJBQcMLXQZ5h1wpUW74nqzCl0GNxon3jVwcwFYxnTQ==}
     dependencies:
       '@unocss/core': 0.54.1
-    dev: false
 
   /@unocss/transformer-compile-class@0.54.1:
     resolution: {integrity: sha512-vsxpTun8cOYx3TQJQ+/Ev0zRNykpE5fSn70oVj1gJuPDYdA76/MMJ/II2CbbfMk70dhu6NrJbXnBtO5y5Geadw==}
@@ -2396,7 +2397,7 @@ packages:
     dependencies:
       debug: 3.2.7
       is-core-module: 2.12.1
-      resolve: 1.22.2
+      resolve: 1.22.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3680,7 +3681,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 5.7.2
       validate-npm-package-license: 3.0.4
     dev: true

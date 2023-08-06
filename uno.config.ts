@@ -1,10 +1,12 @@
 // uno.config.ts
 import {
   defineConfig,
+  presetAttributify,
   presetIcons,
   presetTypography,
   presetUno,
   presetWebFonts,
+  transformerAttributifyJsx,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -12,7 +14,7 @@ import {
 export default defineConfig({
   presets: [
     presetUno(),
-    // presetAttributify(), react jsx 暂时不使用属性模式
+    presetAttributify(), // react jsx 暂时不使用属性模式
     presetTypography(),
     presetWebFonts({
       provider: 'google',
@@ -58,6 +60,7 @@ export default defineConfig({
   transformers: [
     transformerDirectives(),
     transformerVariantGroup(),
+    transformerAttributifyJsx(),
   ],
   safelist: 'prose m-auto text-left'.split(' '),
 })

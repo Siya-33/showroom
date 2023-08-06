@@ -229,30 +229,62 @@ export default function Screen1() {
       {/* main  */}
       {/* tts answer */}
       <div className={getTTSClassName()} />
+
       <div className={getTTS2ClassName()} />
+
       {/* sst */}
       <div className={getSSTClassName()} />
+
       <div className={getSST2ClassName()} />
+
       {/* 语音输入 */}
       <div className={getYanClassName()} />
+
       {/* 语音数字人 */}
       <div className={getYuClassName()} />
+
       {/* 大语音模型 */}
       <div className={getLanClassName()} />
+
       {/* 水滴助手 */}
       <div className="droplen overflow-hidden">
         <div className="brand mb-4 w-fit text-4 font-bold tracking-widest text-white">水滴助手</div>
+
         <div className="test" />
+
         {realAnswer}
       </div>
+
       <div />
-      <div ref={mainRef} className="main">
+
+      <div
+        ref={mainRef}
+        className="main">
         <div className="card-wp preserve-3d">
-          <div data-angle="0" className="card-item grid place-items-center rounded bg-[url(@/bg/tts-1.png)] text-3 text-white/90" onClick={() => handleClick(0, 288)} />
-          <div data-angle="72" className="card-item grid place-items-center rounded bg-[url(@/bg/stt-1.png)] text-3 text-white/90" onClick={() => handleClick(1, 216)} />
-          <div data-angle="144" className="card-item grid place-items-center rounded bg-[url(@/bg/yu-1.png)] text-3 text-white/90" onClick={() => handleClick(2, 144)} />
-          <div data-angle="216" className="card-item grid place-items-center rounded bg-[url(@/bg/yan-1.png)] text-3 text-white/90" onClick={() => handleClick(3, 72)} />
-          <div data-angle="288" className="card-item grid place-items-center rounded bg-[url(@/bg/lan-1.png)] text-3 text-white/90" onClick={() => handleClick(4, 0)} />
+          <div
+            data-angle="0"
+            className="card-item grid place-items-center rounded bg-[url(@/bg/tts-1.png)] text-3 text-white/90"
+            onClick={() => handleClick(0, 288)} />
+
+          <div
+            data-angle="72"
+            className="card-item grid place-items-center rounded bg-[url(@/bg/stt-1.png)] text-3 text-white/90"
+            onClick={() => handleClick(1, 216)} />
+
+          <div
+            data-angle="144"
+            className="card-item grid place-items-center rounded bg-[url(@/bg/yu-1.png)] text-3 text-white/90"
+            onClick={() => handleClick(2, 144)} />
+
+          <div
+            data-angle="216"
+            className="card-item grid place-items-center rounded bg-[url(@/bg/yan-1.png)] text-3 text-white/90"
+            onClick={() => handleClick(3, 72)} />
+
+          <div
+            data-angle="288"
+            className="card-item grid place-items-center rounded bg-[url(@/bg/lan-1.png)] text-3 text-white/90"
+            onClick={() => handleClick(4, 0)} />
         </div>
       </div>
     </div>

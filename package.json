@@ -30,6 +30,7 @@
     "@types/three": "^0.155.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@unocss/transformer-attributify-jsx": "^0.54.1",
     "@vitejs/plugin-react": "^4.0.4",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.33.1",
