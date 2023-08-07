@@ -11,7 +11,7 @@ export default function Screen2() {
 
       <div className="text-red-500" />
 
-      <div />
+      <div className="i-material-symbols:arrow-back-ios-new text-amber" />
     </>
   )
 }

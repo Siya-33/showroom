@@ -271,12 +271,12 @@ export default function Screen1() {
       </div>
 
       {/* toggle bar */}
-      <div className="absolute bottom-70px left-50% h-102px w-295px -translate-x-50%">
-        <div className="ic:outline-keyboard-double-arrow-up" />
+      <div className="absolute bottom-70px left-50% h-102px w-295px flex items-center justify-center gap-5 -translate-x-50%">
+        <div className="i-ic:outline-keyboard-arrow-left text-1.5em" />
 
-        <div className="font-bold text-white/90">场景 01 / 02 </div>
+        <div className="text-1.5em font-bold text-white/90">场景 01 / 02 </div>
 
-        <div className="ic:outline-keyboard-arrow-right h-5 w-5" />
+        <div className="i-ic:outline-keyboard-arrow-right text-1.5em" />
       </div>
 
       <div
