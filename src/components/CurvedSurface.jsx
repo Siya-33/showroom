@@ -26,9 +26,17 @@ function CurvedSurface(props) {
   return (
     <mesh {...props}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={vertices.length / 3} array={vertices} itemSize={3} />
+        <bufferAttribute
+          attach="attributes-position"
+          count={vertices.length / 3}
+          array={vertices}
+          itemSize={3} />
       </bufferGeometry>
-      <meshBasicMaterial color="black" side={THREE.DoubleSide} wireframe={false} />
+
+      <meshBasicMaterial
+        color="black"
+        side={THREE.DoubleSide}
+        wireframe={false} />
     </mesh>
   )
 }

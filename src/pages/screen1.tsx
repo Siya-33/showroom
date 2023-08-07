@@ -265,12 +265,19 @@ export default function Screen1() {
       <div className="droplen overflow-hidden">
         <div className="brand mb-4 w-fit text-4 font-bold tracking-widest text-white">水滴助手</div>
 
-        <div className="test" />
+        <div className="bg-block" />
 
         {realAnswer}
       </div>
 
-      <div />
+      {/* toggle bar */}
+      <div className="absolute bottom-70px left-50% h-102px w-295px -translate-x-50%">
+        <div className="ic:outline-keyboard-double-arrow-up" />
+
+        <div className="font-bold text-white/90">场景 01 / 02 </div>
+
+        <div className="ic:outline-keyboard-arrow-right h-5 w-5" />
+      </div>
 
       <div
         ref={mainRef}
