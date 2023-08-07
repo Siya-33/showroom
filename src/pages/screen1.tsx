@@ -7,6 +7,7 @@ export default function Screen1() {
 
   const timer = useRef<number>()
 
+  const [signal, setSignal] = useState(true)
   const animationText = useCallback(async (text: string) => {
     let s = ''
     let i = 0
@@ -23,6 +24,17 @@ export default function Screen1() {
         clearInterval(timer.current)
     }, 50) as any as number
   }, [])
+
+  const spin = useCallback(() => {
+    requestAnimationFrame(() => {
+      if (signal)
+        setAngle(angle + 0.1)
+    })
+  }, [angle, signal])
+
+  useEffect(() => {
+    spin()
+  }, [spin])
 
   useEffect(() => {
     mainRef.current.style.setProperty('--angle', `${angle}deg`)
@@ -47,6 +59,9 @@ export default function Screen1() {
       window.removeEventListener('mouseup', handleMouseUp)
       // 关闭弹窗
       setActive(undefined)
+      // 开始自动旋转
+      setSignal(true)
+
       e.preventDefault()
     }
     const handleMouseDown = (e: MouseEvent) => {
@@ -54,7 +69,8 @@ export default function Screen1() {
       trueStart = start
       window.addEventListener('mousemove', handleMouseMove)
       window.addEventListener('mouseup', handleMouseUp)
-
+      // 停止自动旋转
+      setSignal(false)
       e.preventDefault()
     }
 

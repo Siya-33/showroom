@@ -61,7 +61,7 @@
   transform-style: preserve-3d;
   transform: translate3d(-50%, 0, 600px) rotateX(88deg);
   background-image: -webkit-radial-gradient(center center, farthest-side, hsla(0, 0%, 100%, .4), transparent);
-  animation: container-spin 50s linear infinite;
+  // animation: container-spin 50s linear infinite;
 
   .card-wp {
     position: absolute;
