@@ -80,8 +80,8 @@ export default function Screen1() {
 
   useEffect(() => {
     if (active === undefined) {
-      mainRef.current.style.animationPlayState = 'running'
       animationText(initialText)
+      setSignal(true)
       return () => {
         animationText('')
       }
@@ -99,7 +99,7 @@ export default function Screen1() {
     if (active === 4)
       animationText('测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试')
 
-    mainRef.current.style.animationPlayState = 'paused'
+    setSignal(false)
     return () => {
       animationText('')
     }
