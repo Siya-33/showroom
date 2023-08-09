@@ -15,6 +15,7 @@ module.exports = {
     'react/jsx-max-props-per-line': 'error',
     'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
     'react/jsx-closing-bracket-location': [1, 'after-props'],
+    'react/no-unknown-property': 'off',
   },
   ignorePatterns: [
     '*.svg',
