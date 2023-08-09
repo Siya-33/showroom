@@ -2,9 +2,8 @@ import { createBrowserRouter } from 'react-router-dom'
 import { lazy } from 'react'
 import App from './App'
 
-const Screen1 = lazy(() => import('./pages/screen1'))
-const Screen2 = lazy(() => import('./pages/screen2'))
-const Screen100 = lazy(() => import('./pages/screen100'))
+const DigitalPeople = lazy(() => import('~/pages/digital_people'))
+const SpaceCapsule = lazy(() => import('~/pages/space_capsule'))
 
 export const router = createBrowserRouter([
   {
@@ -12,15 +11,11 @@ export const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/screen1',
-    element: <Screen1 />,
+    path: '/digital_people',
+    element: <DigitalPeople />,
   },
   {
-    path: '/screen2',
-    element: <Screen2 />,
-  },
-  {
-    path: '/screen100',
-    element: <Screen100 />,
+    path: '/space_capsule',
+    element: <SpaceCapsule />,
   },
 ])

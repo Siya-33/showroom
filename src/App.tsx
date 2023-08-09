@@ -1,4 +1,4 @@
-import Screen1 from './pages/screen1'
+import DigitalPeople from './pages/digital_people'
 
 const test = false
 if (test)
@@ -9,7 +9,7 @@ function App() {
     <div className="relative h-100vh w-100vw screen-bg">
       <div className="pointer-events-none absolute inset-0 w-full bg-[url(@/bg/cover1.png)] bg-top bg-no-repeat opacity-60 mix-blend-soft-light" />
 
-      <Screen1 />
+      <DigitalPeople />
 
       <div className="pointer-events-none absolute inset-0 w-full rotate-180 bg-[url(@/bg/cover1.png)] bg-top bg-no-repeat opacity-60 mix-blend-soft-light" />
     </div>

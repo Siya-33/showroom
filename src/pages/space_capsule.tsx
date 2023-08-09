@@ -9,6 +9,9 @@ import { KernelSize, Resolution } from 'postprocessing'
 import { Scifi } from '~/components/Scifi'
 
 export default function Screen100() {
+  useEffect(() => {
+    document.title = '太空舱'
+  }, [])
   return (
     <div className="h-100vh w-100vw">
       <Canvas>

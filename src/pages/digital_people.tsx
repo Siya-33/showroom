@@ -25,6 +25,10 @@ export default function Screen1() {
     }, 50) as any as number
   }, [])
 
+  // mounted
+  useEffect(() => {
+    document.title = '数字人'
+  }, [])
   const spin = useCallback(() => {
     requestAnimationFrame(() => {
       if (signal)
