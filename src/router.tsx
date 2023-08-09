@@ -4,6 +4,7 @@ import App from './App'
 
 const Screen1 = lazy(() => import('./pages/screen1'))
 const Screen2 = lazy(() => import('./pages/screen2'))
+const Screen100 = lazy(() => import('./pages/screen100'))
 
 export const router = createBrowserRouter([
   {
@@ -17,5 +18,9 @@ export const router = createBrowserRouter([
   {
     path: '/screen2',
     element: <Screen2 />,
+  },
+  {
+    path: '/screen100',
+    element: <Screen100 />,
   },
 ])
