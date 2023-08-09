@@ -1,6 +1,6 @@
 // 100寸大屏
 import '../index.scss'
-import { Dodecahedron, Environment, MeshTransmissionMaterial, OrbitControls, useTexture } from '@react-three/drei'
+import { Dodecahedron, MeshTransmissionMaterial, OrbitControls, useTexture } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 // import { useRef } from 'react'
@@ -14,7 +14,7 @@ export default function Screen100() {
   }, [])
   return (
     <div className="h-100vh w-100vw">
-      <Canvas>
+      <Canvas shadows>
         <OrbitControls />
 
         <color
@@ -25,7 +25,7 @@ export default function Screen100() {
           attach="fog"
           args={['white', 18, 30]} /> */}
 
-        <ambientLight intensity={0.1} />
+        <ambientLight intensity={1} />
 
         {/* <SpotLight
           castShadow
@@ -34,15 +34,16 @@ export default function Screen100() {
           angle={0.5}
           penumbra={1} /> */}
 
-        {/* <directionalLight
-          intensity={5}
+        <directionalLight
+          intensity={1}
           castShadow
+          position={[0, 2, 2]}
           shadow-mapSize-height={512}
-          shadow-mapSize-width={512} /> */}
+          shadow-mapSize-width={512} />
 
-        <Environment
+        {/* <Environment
           background
-          preset="city" />
+          preset="city" /> */}
 
         <Scifi />
 
@@ -82,6 +83,7 @@ function Water() {
   return (
     <group dispose={null}>
       <mesh
+        castShadow
         position={[0, 2.7, 0]}
         ref={mesh$}>
         {/* <sphereGeometry
