@@ -1,7 +1,8 @@
 // 100寸大屏
 import '../index.scss'
-import { Dodecahedron, MeshTransmissionMaterial, OrbitControls, useTexture } from '@react-three/drei'
+import { Dodecahedron, Environment, Loader, MeshTransmissionMaterial, OrbitControls, useTexture } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { useControls } from 'leva'
 
 // import { useRef } from 'react'
 import { Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
@@ -12,10 +13,27 @@ export default function Screen100() {
   useEffect(() => {
     document.title = '太空舱'
   }, [])
+  const [bad] = useState(false)
+  const { enabled, samples, ...config } = useControls({
+    enabled: true,
+    size: { value: 35, min: 0, max: 100, step: 0.1 },
+    focus: { value: 0.5, min: 0, max: 2, step: 0.1 },
+    samples: { value: 16, min: 1, max: 40, step: 1 },
+  })
   return (
     <div className="h-100vh w-100vw">
-      <Canvas shadows>
-        <OrbitControls />
+      <Canvas
+        shadows
+        camera={{ near: 1 }}>
+        <OrbitControls
+          minPolarAngle={1.3}
+          maxPolarAngle={1.3}
+          enableZoom={true}
+          enablePan={false} />
+
+        {/* {enabled && <SoftShadows
+          {...config}
+          samples={bad ? Math.min(6, samples) : samples} />} */}
 
         <color
           attach="background"
@@ -27,23 +45,35 @@ export default function Screen100() {
 
         <ambientLight intensity={1} />
 
-        {/* <SpotLight
+        {/* <pointLight
+          intensity={100}
+          position={[0, 1, 0]} /> */}
+
+        {/* <spotLight
           castShadow
-          intensity={1}
+          intensity={100}
           position={[-2, 3, 1]}
-          angle={0.5}
+          angle={1}
           penumbra={1} /> */}
 
-        <directionalLight
+        {/* <directionalLight
           intensity={1}
           castShadow
-          position={[0, 2, 2]}
-          shadow-mapSize-height={512}
-          shadow-mapSize-width={512} />
+          position={[0, 2, 4]}
+          shadow-mapSize={1024} /> */}
 
-        {/* <Environment
+        {/* <rectAreaLight
+          intensity={5}
+          castShadow
+          position={[0, 5, 0]}
+          rotation-x={-Math.PI / 2}
+
+          width={16}
+          height={16} /> */}
+
+        <Environment
           background
-          preset="city" /> */}
+          preset="city" />
 
         <Scifi />
 
@@ -52,6 +82,13 @@ export default function Screen100() {
         {/* <Test /> */}
 
         <Water />
+
+        {/* <ContactShadows
+          position={[0, -0.8, 0]}
+          opacity={1}
+          scale={10}
+          blur={1.5}
+          far={0.8} /> */}
 
         <EffectComposer disableNormalPass>
           <Bloom
@@ -72,6 +109,8 @@ export default function Screen100() {
             darkness={1.1} />
         </EffectComposer>
       </Canvas>
+
+      <Loader />
     </div>
   )
 }

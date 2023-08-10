@@ -14,7 +14,7 @@ export function Scifi(props) {
       {...props}
       dispose={null}>
       <PerspectiveCamera
-        makeDefault={true}
+        makeDefault={false}
         far={1000}
         near={4.2}
         fov={27.108}
@@ -94,7 +94,7 @@ export function Scifi(props) {
         castShadow
         geometry={nodes.Circle017.geometry}
         material={materials['Material.001']}
-        position={[0, 0.144, 0]} />
+        position={[0, 0, 0]} />
 
       <mesh
         geometry={nodes.Plane031.geometry}
